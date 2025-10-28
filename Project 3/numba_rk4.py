@@ -2,7 +2,7 @@ import numpy as np
 from numba import njit
 
 @njit(cache=True)
-def solve(f, h, t0, tf, r0, t_points, r_points, adaptive, max_tol):
+def solve(f, h, t0, tf, r0, t_points, r_points, adaptive, max_tol, *args):
     '''
     Doc string for solve function
     '''
@@ -17,11 +17,11 @@ def solve(f, h, t0, tf, r0, t_points, r_points, adaptive, max_tol):
         r_i = r_points[i]
 
         if adaptive:
-            r1 = numba_rk4(f, t, r_i, h)
+            r1 = numba_rk4(f, t, r_i, h, *args)
 
-            r_half = numba_rk4(f, t, r_i, h / 2)
+            r_half = numba_rk4(f, t, r_i, h / 2, *args)
 
-            r2 = numba_rk4(f, t + h / 2, r_half, h / 2)
+            r2 = numba_rk4(f, t + h / 2, r_half, h / 2, *args)
 
             Err = np.max(np.abs(r2 - r1))
             Err = max(Err, 1e-14)
@@ -29,7 +29,7 @@ def solve(f, h, t0, tf, r0, t_points, r_points, adaptive, max_tol):
             h = h*(max_tol / Err)**(1/5)
 
         h = min(h, tf - t)  # Do not step beyond tf/avoid overshooting
-        r = numba_rk4(f, t, r_i, h)
+        r = numba_rk4(f, t, r_i, h, *args)
         r_points[i + 1] = r
         t += h
         t_points[i + 1]= t
