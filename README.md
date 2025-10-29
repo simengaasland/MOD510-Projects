@@ -24,3 +24,11 @@ The course introduces **numerical methods** and **modeling techniques** used to 
 
 ---
 
+## Project 3 – *Stirred (not shaken)*  
+**Learning Objectives:**  
+- Implement an ODE solver using the Euler, Runge-Kutta (second and fourth order) algorithm
+- Use mixing tank models to model how the shape of a medical tracer changes after traveling in an aorta arch
+- Compare the ODE model to CFD simulation results and extract information about the cardiac output (flooding rate) and volume of the aortic arch
+- Investigate if one can use the tracer signal to identify if there is a an aneurysm in the aorta
+  
+---
