@@ -32,3 +32,11 @@ The course introduces **numerical methods** and **modeling techniques** used to 
 - Investigate if one can use the tracer signal to identify if there is a an aneurysm in the aorta
   
 ---
+
+## Project 4 - *Monte carlo methods*
+**Learning Objectives:**  
+- Understand the principles of Monte Carlo methods and their application in stochastic modeling.
+- Develop skills in formulating and solving mass balance equations for single and interconnected systems.
+- Quantify uncertainties in simulation results and interpret their implications for system behavior.
+- Compare stochastic simulation outcomes to deterministic ODE solutions, critically analyzing their performance and limitations.
+- Gain hands-on experience with computational tools for solving engineering problems.
